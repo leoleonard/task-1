@@ -43,14 +43,6 @@ updateData(newData){
       });
 }
 
-deleteUser(id){
-  const data= this.state.data?this.state.data:[]
-  _.remove(data, item => item.id === id);
-  this.setState({data:data,alert:[false,"You have successfully removed a user"]})
-  fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-          method : 'DELETE',
-      });
-}
 
 sortTable(itemId){
   let data = Array.from(this.state.data);
@@ -66,6 +58,15 @@ sortTable(itemId){
     sortby:itemId,
     descending:descending
   })
+}
+
+deleteUser(id){
+  const data= this.state.data?this.state.data:[]
+  _.remove(data, item => item.id === id);
+  this.setState({data:data,alert:[false,"You have successfully removed a user"]})
+  fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+          method : 'DELETE',
+      });
 }
 
   render(){
@@ -84,7 +85,8 @@ sortTable(itemId){
           sortTable={this.sortTable.bind(this)}
           sortby={this.state.sortby}
           descending={this.state.descending}
-        ></Table>
+        >
+        </Table>
         {this.state.data.length?'':noUsersInfo}
       </div>
     )
