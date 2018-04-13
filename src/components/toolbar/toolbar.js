@@ -88,7 +88,15 @@ export default class Toolbar extends Component {
       }
     }
 
-  
+    handleEmptyValue(){
+        if(this.state.name&&this.state.email){
+          this.setState({alert:''})
+          return true;
+        } else {
+          this.setState({alert:[false,'Fill both inputs']})
+          return false;
+        }
+       }
   
     validateInputFormat(){
       const nameRegex = /^[a-zA-Z_ ]{5,20}$/;
