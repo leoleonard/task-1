@@ -251,7 +251,7 @@ You would need to install an ESLint plugin for your editor first. Then, add a fi
 }
 ```
 
-Now your editor should report the linting warnings.
+Now your editor should report the linting alerts.
 
 Note that even if you edit your `.eslintrc` file further, these changes will **only affect the editor integration**. They won’t affect the terminal and in-browser lint output. This is because Create React App intentionally provides a minimal set of rules that find common mistakes.
 
@@ -1221,7 +1221,7 @@ set HTTPS=true&&npm start
 HTTPS=true npm start
 ```
 
-Note that the server will use a self-signed certificate, so your web browser will almost definitely display a warning upon accessing the page.
+Note that the server will use a self-signed certificate, so your web browser will almost definitely display a alert upon accessing the page.
 
 ## Generating Dynamic `<meta>` Tags on the Server
 
@@ -1521,7 +1521,7 @@ Example package.json:
 
 By default `npm test` runs the watcher with interactive CLI. However, you can force it to run tests once and finish the process by setting an environment variable called `CI`.
 
-When creating a build of your application with `npm run build` linter warnings are not checked by default. Like `npm test`, you can force the build to perform a linter warning check by setting the environment variable `CI`. If any warnings are encountered then the build fails.
+When creating a build of your application with `npm run build` linter alerts are not checked by default. Like `npm test`, you can force the build to perform a linter alert check by setting the environment variable `CI`. If any alerts are encountered then the build fails.
 
 Popular CI servers already set the environment variable `CI` by default but you can do this yourself too:
 
@@ -1585,7 +1585,7 @@ The test command will force Jest to run tests once instead of launching the watc
 
 >  If you find yourself doing this often in development, please [file an issue](https://github.com/facebookincubator/create-react-app/issues/new) to tell us about your use case because we want to make watcher the best experience and are open to changing how it works to accommodate more workflows.
 
-The build command will check for linter warnings and fail if any are found.
+The build command will check for linter alerts and fail if any are found.
 
 ### Disabling jsdom
 
@@ -2334,7 +2334,7 @@ HOST | :white_check_mark: | :x: | By default, the development web server binds t
 PORT | :white_check_mark: | :x: | By default, the development web server will attempt to listen on port 3000 or prompt you to attempt the next available port. You may use this variable to specify a different port.
 HTTPS | :white_check_mark: | :x: | When set to `true`, Create React App will run the development server in `https` mode.
 PUBLIC_URL | :x: | :white_check_mark: | Create React App assumes your application is hosted at the serving web server's root or a subpath as specified in [`package.json` (`homepage`)](#building-for-relative-paths). Normally, Create React App ignores the hostname. You may use this variable to force assets to be referenced verbatim to the url you provide (hostname included). This may be particularly useful when using a CDN to host your application.
-CI | :large_orange_diamond: | :white_check_mark: | When set to `true`, Create React App treats warnings as failures in the build. It also makes the test runner non-watching. Most CIs set this flag by default.
+CI | :large_orange_diamond: | :white_check_mark: | When set to `true`, Create React App treats alerts as failures in the build. It also makes the test runner non-watching. Most CIs set this flag by default.
 REACT_EDITOR | :white_check_mark: | :x: | When an app crashes in development, you will see an error overlay with clickable stack trace. When you click on it, Create React App will try to determine the editor you are using based on currently running processes, and open the relevant source file. You can [send a pull request to detect your editor of choice](https://github.com/facebookincubator/create-react-app/issues/2636). Setting this environment variable overrides the automatic detection. If you do it, make sure your systems [PATH](https://en.wikipedia.org/wiki/PATH_(variable)) environment variable points to your editor’s bin folder. You can also set it to `none` to disable it completely.
 CHOKIDAR_USEPOLLING | :white_check_mark: | :x: | When set to `true`, the watcher runs in polling mode, as necessary inside a VM. Use this option if `npm start` isn't detecting changes.
 GENERATE_SOURCEMAP | :x: | :white_check_mark: | When set to `false`, source maps are not generated for a production build. This solves OOM issues on some smaller machines.
