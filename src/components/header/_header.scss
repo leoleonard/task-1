@@ -1,0 +1,21 @@
+.header{
+  width: 100%;
+  height: 45px;
+  background: rgba(250, 250, 250, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  &__logo{
+    height: 35px;
+    width: 150px;
+    background-image: url("./components/header/unamo2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  &__link{
+    color: rgba(33, 170, 112, 1);
+    font-size: 14px;
+  }
+
+}

@@ -1,113 +1,113 @@
 .toolbar{
-    height:70px;
-    background-color: rgba(255, 255, 255, 1);
+  height:70px;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  &__info{
+    font-size: 13px;
+    padding-left: 8px;
+    padding-top: 5px;
+    display: flex;
+    &_exclamation{
+      background-image: url("./components/toolbar/icons/exclamation.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 18px;
+      width: 18px;
+      margin: -1px 5px 0 0;
+    }
+    &_tick{
+      background-image: url("./components/toolbar/icons/tick.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 18px;
+      width: 18px;
+      margin-right: 5px;
+    }
+  }
+  &_form{
     display: flex;
     align-items: center;
-    &__info{
-      font-size: 13px;
-      padding-left: 8px;
-      padding-top: 5px;
-      display: flex;
-      &_exclamation{
-        background-image: url("./components/toolbar/icons/exclamation.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 18px;
-        width: 18px;
-        margin: -1px 5px 0 0;
-      }
-      &_tick{
-        background-image: url("./components/toolbar/icons/tick.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 18px;
-        width: 18px;
-        margin-right: 5px;
-      }
+    justify-content: flex-start;
+    padding-left: 10px;
+    // border: 1px solid red;
+  }
+  &__input{
+    width: 180px;
+    height: 32px;
+    margin-left: 10px;
+    padding-left: 20px;
+    border: 2px solid rgba(225, 225, 225, 1);
+    border-radius: 3px;
+    box-shadow: 0 0 0 30px white inset;
+    &::placeholder{
+      color:rgba(205, 205, 205, 1);
     }
-    &_form{
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding-left: 10px;
-    }
-    &__input{
-      width: 180px;
-      height: 32px;
-      margin-left: 10px;
-      padding-left: 20px;
-      border: 2px solid rgba(225, 225, 225, 1);
-      border-radius: 3px;
-      box-shadow: 0 0 0 30px white inset;
-      &::placeholder{
-        color:rgba(205, 205, 205, 1);
-      }
-      &:focus{
-        border: 2px solid rgba(33, 170, 112, 1);
-        outline: none;
-      }
-  
-    }
-    &__button{
-      width: 140px;
-      height: 37px;
-      font-size: 17px;
-      font-weight: bold;
-      margin-left: 20px;
-      border:1px solid rgba(33, 170, 112, 1);
-      border-radius: 3px;
-      background-color:  rgba(33, 170, 112, 1);
-      color:rgba(255, 255, 255, 1);
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      &_submit{
-        justify-content: center;
-        margin-left: 10px;
-        display: inline-block;
-      }
-      &:hover{
-        background-color:  rgba(255, 255, 255, 1);
-        color:  rgba(33, 170, 112, 1);
-      }
-      &_disabled{
-        color:  rgba(33, 170, 112, 1);
-        background-color:  rgba(255, 255, 255, 1);
-        cursor: auto;
-      }
-      &:hover .toolbar__button_plus{
-        background-image: url("./components/toolbar/icons/green.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      &:focus{
-        outline: none;
-      }
-      &_plus{
-        height: 20px;
-        width:20px;
-        margin:0 9px;
-        background-image: url("./components/toolbar/icons/white.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-        color:   rgba(33, 170, 112, 1);
-        &_disabled{
-          background-image: url("./components/toolbar/icons/green.png");
-          background-color:  rgba(255, 255, 255, 1);
-        }
-      }
-    }
-    &__button-clear{
-      margin-left: 10px;
-      border: 0 solid green;
-      background-color: rgba(255, 255, 255, 1);
+    &:focus{
+      border: 2px solid rgba(33, 170, 112, 1);
       outline: none;
-      color:rgba(250, 33, 20, 1);
-      cursor: pointer;
-      font-size: 13px;
-      &:hover{
-        color:rgba(250, 156, 45, 1);
+    }
+
+  }
+  &__button{
+    width: 140px;
+    height: 37px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-left: 20px;
+    border:1px solid rgba(33, 170, 112, 1);
+    border-radius: 3px;
+    background-color:  rgba(33, 170, 112, 1);
+    color:rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &_submit{
+      justify-content: center;
+      margin-left: 10px;
+      display: inline-block;
+    }
+    &:hover{
+      background-color:  rgba(255, 255, 255, 1);
+      color:  rgba(33, 170, 112, 1);
+    }
+    &_disabled{
+      color:  rgba(33, 170, 112, 1);
+      background-color:  rgba(255, 255, 255, 1);
+      cursor: auto;
+    }
+    &:hover .toolbar__button_plus{
+      background-image: url("./components/toolbar/icons/green.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &:focus{
+      outline: none;
+    }
+    &_plus{
+      height: 20px;
+      width:20px;
+      margin:0 9px;
+      background-image: url("./components/toolbar/icons/white.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      color:   rgba(33, 170, 112, 1);
+      &_disabled{
+        background-image: url("./components/toolbar/icons/green.png");
+        background-color:  rgba(255, 255, 255, 1);
       }
     }
   }
-  
+  &__button-clear{
+    margin-left: 10px;
+    border: 0 solid green;
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+    color:rgba(250, 33, 20, 1);
+    cursor: pointer;
+    font-size: 13px;
+    &:hover{
+      color:rgba(250, 156, 45, 1);
+    }
+  }
+}

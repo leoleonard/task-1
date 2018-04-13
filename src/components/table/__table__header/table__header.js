@@ -35,5 +35,8 @@ export default class TableHeader extends Component {
               </tr>
             </thead>
         );
-    }
-}
+    }//render
+}//component
+
+
+//

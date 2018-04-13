@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import TableHeader from './__table__header/__table__header';
-import TableItem from './__table__item/__table__item';
+import TableHeader from './__table__header/table__header.js';
+import TableItem from './__table__item/table__item.js';
 
 export default class Table extends Component {
   constructor(props){
@@ -16,13 +16,12 @@ export default class Table extends Component {
   }
 
   renderItems() {
-      return _.map(this.props.data,(item, index) => 
-      <TableItem
-      key={index}
-      {...item} 
-      index={index} 
+      return _.map(this.props.data, (item, index) => (
+      <TableItem key={index}
+      {...item}
+      index={index}
       deleteUser={this.deleteUser.bind(this)}
-      classType={index%2===0?"table-body__row_even":"table-body__row_odd"}/>);
+      classType={index%2===0?"table-body__row_even":"table-body__row_odd"}/>));
   }
 
   sortTable(itemId){

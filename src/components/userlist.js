@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import Header from './../header/header';
-import Table from './../table/table';
-import Toolbar from './../toolbar/toolbar';
+import Table from './table/table.js';
+import Toolbar from './toolbar/toolbar.js';
+import Header from './header/header.js';
 import _ from 'lodash';
 
 
@@ -12,10 +12,9 @@ export default class Userlist extends Component {
       data:'',
       sortby:'',
       descending:false,
-      alert:''
+      warning:''
     }
   }
-
   componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users').then(resp => resp.json())
       .then(data => {
@@ -27,13 +26,13 @@ export default class Userlist extends Component {
             console.log("Failed to download data from server");
           }
         }
-      );
-  }
+      );//end of then
+  }//end of component did
 
 updateData(newData){
   const data= this.state.data?this.state.data:[];
   data.push(newData);
-  this.setState({data:data,alert:"" })
+  this.setState({data:data,warning:"" })
   fetch(`https://jsonplaceholder.typicode.com/users`, {
           method : 'POST',
           headers: {
@@ -43,6 +42,14 @@ updateData(newData){
       });
 }
 
+deleteUser(id){
+  const data= this.state.data?this.state.data:[]
+  _.remove(data, item => item.id === id);
+  this.setState({data:data,warning:[false,"You have successfully removed a user"]})
+  fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+          method : 'DELETE',
+      });
+}
 
 sortTable(itemId){
   let data = Array.from(this.state.data);
@@ -60,15 +67,6 @@ sortTable(itemId){
   })
 }
 
-deleteUser(id){
-  const data= this.state.data?this.state.data:[]
-  _.remove(data, item => item.id === id);
-  this.setState({data:data,alert:[false,"You have successfully removed a user"]})
-  fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-          method : 'DELETE',
-      });
-}
-
   render(){
     const noUsersInfo = <span>No users</span>;
     return (
@@ -76,7 +74,7 @@ deleteUser(id){
         <Header/>
         <Toolbar
           data={this.state.data}
-          alert={this.state.alert}
+          warning={this.state.warning}
           updateData={this.updateData.bind(this)}
         ></Toolbar>
         <Table
@@ -85,8 +83,7 @@ deleteUser(id){
           sortTable={this.sortTable.bind(this)}
           sortby={this.state.sortby}
           descending={this.state.descending}
-        >
-        </Table>
+        ></Table>
         {this.state.data.length?'':noUsersInfo}
       </div>
     )
