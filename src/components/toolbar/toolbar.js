@@ -14,13 +14,13 @@ export default class Toolbar extends Component {
 
     }
   }
-//CWP in case removing elemts from the list which is executed in form but needs info in Toolbar--------
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.length < 10){
       this.setState({warning:nextProps.warning,showForm:!nextProps.warning})
     }
   }
-// the function handles showing warnings and clear button-------------------
+
   showComment(){
     const inputshaveValue= this.state.email || this.state.name;
     const {warning}= this.state;
@@ -49,11 +49,11 @@ export default class Toolbar extends Component {
       )
     }
   }
-// action initiated by clear button to clear inputs-------------------------
+
   resetInputsValues(){
       this.setState({name:'',email:''})
   }
-//action intiated by add user button------------------------
+
   toggleForm(){
     if(this.props.data.length>=10){
       this.setState({showForm:false,warning:[false,"The list is full"]})
@@ -61,19 +61,19 @@ export default class Toolbar extends Component {
       this.setState({showForm:true,warning:""})
     }
   }
-  //action which changes the state every time sth going on in inputs---------
+
   handleOnChange(e){
     const target = e.target;
     const value = target.value;
     const name = target.name;
     this.setState({[name]:value})
   }
-  //action used to clear wrnings in case of focusing on an input-----------
+
   handleOnFocus(e){
     e.preventDefault();
     this.setState({warning:''})
   }
-  //action triggered by submit button---------------------------------------
+
   handleOnSubmit(e){
     e.preventDefault();
     const formIsNotEmpty= this.handleEmptyValue();
@@ -87,7 +87,7 @@ export default class Toolbar extends Component {
       }
     }
   }
-//action initiated in handleOnSubmit() to check if both inputs are filled----------
+
   handleEmptyValue(){
    if(this.state.name&&this.state.email){
      this.setState({warning:''})
@@ -97,7 +97,7 @@ export default class Toolbar extends Component {
      return false;
    }
   }
-  //action initiated in handleOnSubmit() to check correctness of inputs' format-----------
+  
   validateInputFormat(){
     const nameRegex = /^[a-zA-Z_ ]{5,20}$/;
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -112,11 +112,11 @@ export default class Toolbar extends Component {
       return true;
     }
   }
-  //action initiated in handleOnSubmit() to check if email is duplicated------
+ 
   handleFoundingSameEmail(){
     return _.find(this.props.data,el=>el.email===this.state.email);
   }
-  //action initiated in handleOnSubmit() to add new user----------------------
+ 
   updatingData(){
     const randomId = Math.random().toString(16).substring(2);
     const Newobj = {id:`${randomId}`,name:`${this.state.name}`, email:`${this.state.email}`};
