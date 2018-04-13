@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Header from './../header/header';
-import Table from '../../table/table';
+import Table from './../table/table';
 import Toolbar from './../toolbar/toolbar';
 import _ from 'lodash';
 
